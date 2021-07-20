@@ -23,6 +23,8 @@ If you are interested in checking out our development progress, hop on over to o
 
 **Matthew "Spliffurt" Brady** - music composing
 
+**nonk123** - programming
+
 **Typhon** - Delayed Function Calling DLL
 
 ### [THIRD-PARTIES]
@@ -45,8 +47,12 @@ If you are interested in checking out our development progress, hop on over to o
 
 
 # DISCLAIMER
-This is an **unofficial, non-profit** fan game. It is open-sourced and freeware, and will always be.
+This is an **unofficial, non-profit** fan game.
+
+The license only applies to the game engine and its first-party tools.
+
+It does not apply to any of the game assets in this repository. They are unlicensed, since some of Project Nightmare's assets are property of Nintendo and Capcom.
 
 We do not hold any copyrights.
 
-**Mario, Link & other related characters © Nintendo	• FMOD © Firelight Technologies**
+**Mario & Zelda © Nintendo • Ace Attorney © Capcom • FMOD © Firelight Technologies**
