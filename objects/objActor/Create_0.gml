@@ -118,7 +118,12 @@ baseTick = function()
 	if (fCollision)
 	{
 		var getRoom = global.levelData[? global.levelRoom];
-		if (!is_undefined(getRoom) && !is_undefined(getRoom[eRoomData.collision]))
+		if (is_undefined(getRoom) && is_undefined(getRoom[eRoomData.collision]))
+		{
+			fOnGround = false;
+			surface = eSurface.none;
+		}
+		else
 		{
 			var half = height * 0.5, i = 0;
 			repeat (array_length(getRoom[eRoomData.collision]))
@@ -169,11 +174,6 @@ baseTick = function()
 			
 				i++;
 			}
-		}
-		else
-		{
-			fOnGround = false;
-			surface = eSurface.none;
 		}
 	}
 	else
