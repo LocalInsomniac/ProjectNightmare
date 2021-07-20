@@ -2,7 +2,7 @@
 An arguably better recreation of Nintendo Nightmare.
 Basically, we're making the game less janky and giving it the facelift it deserves.
 
-Currently written in GameMaker Studio 2.3.2.426.
+Currently written in GameMaker Studio 2.3.3.
 
 **Original:** https://adriendittrick.itch.io/9-10-do-nightmare
 
@@ -22,6 +22,8 @@ If you are interested in checking out our development progress, hop on over to o
 ### [CONTRIBUTORS]
 
 **Matthew "Spliffurt" Brady** - music composing
+
+**nonk123** - programming
 
 **Typhon** - Delayed Function Calling DLL
 
@@ -45,9 +47,11 @@ If you are interested in checking out our development progress, hop on over to o
 
 
 # DISCLAIMER
-This is an unofficial non-profit fan game. It is open-sourced and freeware, and will always be.
+This is an **unofficial, non-profit** fan game.
 
-We do not hold any licenses nor copyrights. This game must NOT be sold.
-"If somebody sold you that game, please call the nearest government police station, and pray they dont work for Bill Gates" (sic)
+The license only applies to the game engine and its first-party tools, and does not apply to any of the game assets in this repository.
+Game assets are not under any license, since some are property of Nintendo and Capcom.
 
-**Mario, Link & other related characters © Nintendo	• FMOD © Firelight Technologies**
+We do not hold any copyrights.
+
+**Mario & Zelda © Nintendo • Ace Attorney © Capcom • FMOD © Firelight Technologies**
