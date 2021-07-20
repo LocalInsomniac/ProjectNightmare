@@ -49,7 +49,8 @@ If you are interested in checking out our development progress, hop on over to o
 # DISCLAIMER
 This is an **unofficial, non-profit** fan game.
 
-The license only applies to the game engine and its first-party tools, and does not apply to any of the game assets in this repository. They are unlicensed, since some of Project Nightmare's assets are property of Nintendo and Capcom.
+The license only applies to the game engine and its first-party tools, and does not apply to any of the game assets in this repository.
+Game assets are not under any license, since some are property of Nintendo and Capcom.
 
 We do not hold any copyrights.
 
