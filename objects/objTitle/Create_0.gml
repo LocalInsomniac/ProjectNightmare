@@ -121,11 +121,8 @@ checkBind = false;
 leaveTitle = undefined;
 
 timer_create();
-if (global.gameStart)
-{
-	timer[0] = 450;
-	timer[2] = 1800;
-}
+if (global.gameStart) timer[0] = 450;
+else timer[2] = 1800;
 animation = 0;
 image_alpha = 0;
 menuY = 0;
