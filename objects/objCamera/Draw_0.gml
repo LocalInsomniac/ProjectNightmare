@@ -19,8 +19,8 @@ else
 	_z = z;
 }
 
-var pitchFactor = dcos(_pitch), yawFactorX = dcos(_yaw), yawFactorY = -dsin(_yaw);
-cam_set_viewmat(view_camera[0], _x, _y, _z, _x + pitchFactor * yawFactorX, _y + pitchFactor * yawFactorY, _z + dtan(clamp(_pitch, -89.95, 89.95)), 0, 0, 1);
+var yawFactorX = dcos(_yaw), yawFactorY = -dsin(_yaw);
+cam_set_viewmat(view_camera[0], _x, _y, _z, _x + yawFactorX, _y + yawFactorY, _z + dtan(clamp(_pitch, -89.95, 89.95)), 0, 0, 1);
 cam_set_projmat(view_camera[0], fov, 16/9, 1, 65536);
 camera_apply(view_camera[0]);
 
