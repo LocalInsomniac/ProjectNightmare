@@ -108,7 +108,6 @@
     {"id":{"name":"quat_get_si","path":"scripts/quat_get_si/quat_get_si.yy",},"order":3,},
     {"id":{"name":"vector_orthogonalize","path":"scripts/vector_orthogonalize/vector_orthogonalize.yy",},"order":7,},
     {"id":{"name":"__carton_config","path":"scripts/__carton_config/__carton_config.yy",},"order":0,},
-    {"id":{"name":"smf_create_vertex_buffer","path":"scripts/smf_create_vertex_buffer/smf_create_vertex_buffer.yy",},"order":0,},
     {"id":{"name":"input_binding_get_collisions","path":"scripts/input_binding_get_collisions/input_binding_get_collisions.yy",},"order":1,},
     {"id":{"name":"__input_binding_get_source","path":"scripts/__input_binding_get_source/__input_binding_get_source.yy",},"order":1,},
     {"id":{"name":"smf_cross_product","path":"scripts/smf_cross_product/smf_cross_product.yy",},"order":1,},
