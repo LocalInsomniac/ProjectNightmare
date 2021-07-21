@@ -34,7 +34,7 @@ else
 {
 	global.currentShader = shSkybox;
 	shader_set(shSkybox);
-	shader_set_uniform_f(shader_get_uniform(shSkybox, "time"), time);
+	shader_set_uniform_f(global.shaderUniforms[eShader.skybox][eSkyboxShaderUniform.time], time);
 	gpu_set_zwriteenable(false);
 	matrix_set(matrix_world, matrix_build(_x + yawFactorX, _y + yawFactorY, _z, 0, 0, 0, 1, 1, 1));
 	smf_model_draw(global.skybox[1], pn_material_get_texture(global.skybox[0]));
@@ -43,25 +43,14 @@ else
 
 global.currentShader = shWorld;
 shader_set(shWorld);
-shader_set_uniform_f(shader_get_uniform(shWorld, "fogStart"), global.fogDistance[0]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "fogEnd"), global.fogDistance[1]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "fogColor"), global.fogColor[0], global.fogColor[1], global.fogColor[2], global.fogColor[3]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "lightDirection"), global.lightNormal[0], global.lightNormal[1], global.lightNormal[2]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "lightColor"), global.lightColor[0], global.lightColor[1], global.lightColor[2], global.lightColor[3]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "lightAmbientColor"), global.lightAmbientColor[0], global.lightAmbientColor[1], global.lightAmbientColor[2], global.lightAmbientColor[3]);
-shader_set_uniform_f(shader_get_uniform(shWorld, "time"), time);
 
-//Actors farthest to nearest (fixes alpha blending issues)
-
-with (objActor) if (fVisible) ds_priority_add(other.renderPriority, self, point_distance_3d(other.x, other.y, other.z, x, y, z));
-
-repeat (ds_priority_size(renderPriority))
-{
-	ds_priority_find_max(renderPriority).draw();
-	ds_priority_delete_max(renderPriority);
-}
-
-smf_matrix_reset();
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.fogStart], global.fogDistance[0]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.fogEnd], global.fogDistance[1]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.fogColor], global.fogColor[0], global.fogColor[1], global.fogColor[2], global.fogColor[3]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.lightDirection], global.lightNormal[0], global.lightNormal[1], global.lightNormal[2]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.lightColor], global.lightColor[0], global.lightColor[1], global.lightColor[2], global.lightColor[3]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.lightAmbientColor], global.lightAmbientColor[0], global.lightAmbientColor[1], global.lightAmbientColor[2], global.lightAmbientColor[3]);
+shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.time], time);
 
 //Level
 var roomData = global.levelData[? global.levelRoom];
@@ -81,4 +70,15 @@ if !(is_undefined(roomData))
 	}
 }
 
+//Actors farthest to nearest (fixes alpha blending issues)
+
+with (objActor) if (fVisible) ds_priority_add(other.renderPriority, self, point_distance_3d(other.x, other.y, other.z, x, y, z));
+
+repeat (ds_priority_size(renderPriority))
+{
+	ds_priority_find_max(renderPriority).draw();
+	ds_priority_delete_max(renderPriority);
+}
+
+smf_matrix_reset();
 shader_reset();

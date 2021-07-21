@@ -46,7 +46,33 @@ global.events = ds_map_create();
 //Graphics
 global.cameraDefaultView = camera_get_view_mat(view_camera[0]);
 global.cameraDefaultProjection = camera_get_proj_mat(view_camera[0]);
+
 global.currentShader = shWorld;
+global.shaderUniforms =
+[
+	[
+		shader_get_uniform(shWorld, "lightDirection"),
+		shader_get_uniform(shWorld, "lightColor"),
+		shader_get_uniform(shWorld, "lightAmbientColor"),
+		shader_get_uniform(shWorld, "time"),
+		shader_get_uniform(shWorld, "scroll"),
+		shader_get_uniform(shWorld, "animated"),
+		shader_get_uniform(shWorld, "boneDQ"),
+		shader_get_uniform(shWorld, "sprite"),
+		shader_get_uniform(shWorld, "fogStart"),
+		shader_get_uniform(shWorld, "fogEnd"),
+		shader_get_uniform(shWorld, "fogColor"),
+		shader_get_uniform(shWorld, "specular"),
+		shader_get_uniform(shWorld, "crystal")
+	],
+	[
+		shader_get_uniform(shSkybox, "time"),
+		shader_get_uniform(shSkybox, "scroll")
+	]
+];
+enum eShader {world, skybox}
+enum eWorldShaderUniform {lightDirection, lightColor, lightAmbientColor, time, scroll, animated, boneDQ, sprite, fogStart, fogEnd, fogColor, specular, crystal}
+enum eSkyboxShaderUniform {time, scroll}
 
 global.skybox = [noone, undefined];
 global.skyboxColor = [];
