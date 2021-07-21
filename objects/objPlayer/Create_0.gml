@@ -1,7 +1,7 @@
 /// @description Create Player
 event_inherited();
 
-sprite = "sprMario";
+sprite = "sprFairy";
 frameSpeed = 0.075;
 
 tick = function()
