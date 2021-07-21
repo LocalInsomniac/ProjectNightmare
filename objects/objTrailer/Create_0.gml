@@ -15,3 +15,5 @@ buffer_poke(buff, buffer_get_size(buff) - 1, buffer_u8, 0);
 
 // fixes window close button on unix-likes with kwin/kde.
 window_set_size(window_get_width(), window_get_height());
+
+global.clock.add_cycle_method(function () { if (pn_input_pressed_any()) pn_level_goto(eLevel.title); });
