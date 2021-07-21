@@ -7,6 +7,7 @@ image_alpha = 0;
 timer_create();
 
 //Animation control
+global.clock.variable_interpolate("wobble", "wobble_smooth");
 global.clock.variable_interpolate("image_xscale", "image_xscale_smooth");
 global.clock.variable_interpolate("image_alpha", "image_alpha_smooth");
 global.clock.add_cycle_method(function ()
