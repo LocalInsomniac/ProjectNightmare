@@ -134,7 +134,7 @@ baseTick = function()
 				var mesh = collision[eCollisionData.mesh];
 			
 				//Top
-				var collision = mesh.castRay(xprevious, yprevious, zPrevious + half, x, y, z + height);
+				collision = mesh.castRay(xprevious, yprevious, zPrevious + half, x, y, z + height);
 				if (is_array(collision))
 				{
 					z = collision[2] - height;
