@@ -84,7 +84,7 @@ baseTick = function()
 			switch (spriteType)
 			{
 				case (eSpriteType.normal):
-				case (eSpriteType.billboard): n = sprite_get_number(spriteData) - 1; break
+				case (eSpriteType.billboard): n = sprite_get_number(spriteData); break
 				case (eSpriteType.rotate):
 				case (eSpriteType.billboardRotate): n = sprite_get_number(spriteData) * 0.25; break
 				case (eModelType.animated): n = array_length(spriteData[2 + animation]) - 2; break
@@ -238,12 +238,12 @@ baseDraw = function()
 		if (spriteType == eModelType.animated && framePrevious != _frame)
 		{
 			var getAnimation = spriteData[2 + animation], n = array_length(getAnimation) - 2;
-			var cycle = (getAnimation[1] == 1 || getAnimation[1] == 3) ? (_frame + 1) mod (n) : min(_frame + 1, n);
+			var cycle = (getAnimation[1] == SMF_loop_linear || getAnimation[1] == SMF_loop_quadratic) ? (_frame + 1) mod (n) : min(_frame + 1, n);
             frameSample = smf_sample_blend(getAnimation[2 + floor(_frame)], getAnimation[2 + floor(cycle)], frac(_frame));
             framePrevious = _frame;
 			smf_animation_set_shader_uniforms(shWorld, frameSample);
 		}
-		shader_set_uniform_f(shader_get_uniform(shWorld, "animated"), spriteType == eModelType.animated);
+		shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.animated], spriteType == eModelType.animated);
 		
 		matrix_set(matrix_world, matrix_build(_x, _y, _z, _roll, _pitch, _yaw, _scale * _xScale, _scale * _yScale, _scale * _zScale));
 		
@@ -261,6 +261,15 @@ baseDraw = function()
 			smf_model_draw(getBodygroup[n], pn_material_get_texture(getBodygroup[n + 1]));
 			i++;
 		}
+	}
+	else //Regular sprite
+	{
+		var spriteWidth = _scale * _xScale * sprite_get_width(spriteData) * 0.5, spriteXOffset = _scale * _xScale * sprite_get_xoffset(spriteData) * 0.5, spriteYaw = -objCamera.yaw + 90;
+		matrix_set(matrix_world, matrix_build(_x - lengthdir_x(spriteXOffset, -spriteYaw), _y - lengthdir_y(spriteXOffset, -spriteYaw), _z + (_scale * _yScale * (sprite_get_yoffset(spriteData) * 0.5)), 90, spriteYaw, 0, spriteWidth, spriteWidth, _scale * _yScale * sprite_get_height(spriteData) * 0.5))
+		//Tell the shader to discard pixels outside of the UV range 0 - 1
+		shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.sprite], true);
+		smf_model_draw(SMF_billboard, getSprite[2 + _frame]);
+		shader_set_uniform_f(global.shaderUniforms[eShader.world][eWorldShaderUniform.sprite], false);
 	}
 }
 draw = function() { baseDraw(); }
