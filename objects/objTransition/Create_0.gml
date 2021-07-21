@@ -6,7 +6,7 @@ transition = eTransition.circle;
 reverse = false;
 goto = noone;
 
-surface = surface_create(camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]));
+surface = -1
 
 timer_create();
 
