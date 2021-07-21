@@ -399,6 +399,8 @@ function pn_level_goto_internal(_levelID)
 	}
 	FMODGMS_Chan_Set_Volume(global.channel[0], global.volume[0] * global.volume[2]);
 	FMODGMS_Chan_Set_Volume(global.channel[1], 0);
+	
+	pn_input_center_mouse();
 }
 
 function pn_room_goto(_roomID, _clearParticles)

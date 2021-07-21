@@ -87,6 +87,8 @@ global.clock.add_cycle_method(function ()
 		if (animation >= -463) animation -= 25;
 		else
 		{
+			pn_input_center_mouse();
+			global.levelStart = true;
 			instance_activate_all();
 			instance_destroy();
 		}
