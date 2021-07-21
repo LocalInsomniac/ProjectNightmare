@@ -1,26 +1,26 @@
 /// @description Draw Transition
 
-var width = camera_get_view_width(view_camera[0])
-var height = camera_get_view_height(view_camera[0])
+var width = camera_get_view_width(view_camera[0]);
+var height = camera_get_view_height(view_camera[0]);
 
 if !(surface_exists(surface)) surface = surface_create(width, height);
 
 surface_set_target(surface);
 
 // Clear the Z-buffer. The transition won't work in a 3D world otherwise.
-draw_clear_alpha(c_white, 0)
+draw_clear_alpha(c_black, 0);
 
 switch (transition)
 {
 	case (eTransition.circle):
-		var radius = (reverse ? timer[0] : (60 - timer[0])) / 60.0 * width
+		var radius = (reverse ? timer[0] : (60 - timer[0])) / 60 * width;
 
 		draw_set_color(c_black);
 		draw_circle(width * 0.5, height * 0.5, radius, false);
 		draw_set_color(c_white);
 		break
 	case (eTransition.circle2):
-		var radius = (reverse ? (60 - timer[0]) : timer[0]) / 60.0 * width
+		var radius = (reverse ? (60 - timer[0]) : timer[0]) / 60 * width;
 
 		draw_set_color(c_black);
 		draw_rectangle(0, 0, width, height, false);
@@ -40,4 +40,4 @@ switch (transition)
 
 surface_reset_target();
 
-draw_surface(surface, 0, 0)
+draw_surface(surface, 0, 0);
