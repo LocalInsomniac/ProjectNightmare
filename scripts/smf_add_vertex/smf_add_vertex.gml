@@ -1,4 +1,4 @@
-/// @description smf_add_vertex(buffer, x, y, z, nx, ny, nz, u, v, color, alpha, vColor, vAlpha)
+/// @description smf_add_vertex(buffer, x, y, z, nx, ny, nz, u, v, vColor, vAlpha, color, alpha)
 /// @param buffer
 /// @param  x
 /// @param  y
@@ -8,10 +8,10 @@
 /// @param  nz
 /// @param  u
 /// @param  v
-/// @param  color
-/// @param  alpha
 /// @param  vColor
 /// @param  vAlpha
+/// @param  color
+/// @param  alpha
 function smf_add_vertex(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12) {
 	/*
 	Adds a vertex to a vertex buffer using Snidrs Model Format
@@ -29,13 +29,13 @@ function smf_add_vertex(argument0, argument1, argument2, argument3, argument4, a
 	//vertex_texcoord
 	vertex_texcoord(argument0, argument7, argument8);
 
-	//vertex_color (Colour, tangent or bone indices)
+	//vertex_color
 	vertex_colour(argument0, argument9, argument10);
+
+	//vertex_color (Colour, tangent or bone indices)
+	vertex_colour(argument0, argument11, argument12);
 
 	//vertex_color (Cotangent or bone weights)
-	vertex_colour(argument0, argument9, argument10);
-
-	//vertex_color
 	vertex_colour(argument0, argument11, argument12);
 
 
