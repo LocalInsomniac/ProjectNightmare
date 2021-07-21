@@ -21,6 +21,7 @@ uniform vec2 scroll;
 
 //Animation
 uniform bool animated;
+
 const int maxBones = 64;
 uniform vec4 boneDQ[2 * maxBones];
 
