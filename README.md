@@ -1,6 +1,7 @@
 # PROJECT NIGHTMARE
 An arguably better recreation of Nintendo Nightmare.
-Basically, we're making the game less janky and giving it the facelift it deserves.
+Basically, we're making the game less janky and giving it the facelift it
+deserves.
 
 Currently written in GameMaker Studio 2.3.3.
 
@@ -8,7 +9,8 @@ Currently written in GameMaker Studio 2.3.3.
 
 **Deluxe Edition:** https://fazana.itch.io/910-nightmare-dx
 # 
-If you are interested in checking out our development progress, hop on over to our Discord server! https://discord.gg/yCHyuBF
+If you are interested in checking out our development progress, hop on over to
+our Discord server! https://discord.gg/yCHyuBF
 
 # CREDITS
 ### [TEAM NIGHTMARE]
@@ -23,7 +25,7 @@ If you are interested in checking out our development progress, hop on over to o
 
 **Matthew "Spliffurt" Brady** - music composing
 
-**nonk123** - programming
+**nonk123** - programming, beta testing
 
 **Typhon** - Delayed Function Calling DLL
 
@@ -49,8 +51,11 @@ If you are interested in checking out our development progress, hop on over to o
 # DISCLAIMER
 This is an **unofficial, non-profit** fan game.
 
-The license only applies to the game engine and its first-party tools, and does not apply to any of the game assets in this repository.
-Game assets are not under any license, since some are property of Nintendo and Capcom.
+The license only applies to the game engine and its first-party tools, and does
+not apply to any of the game assets in this repository.
+
+Game assets are not under any license, since some are property of Nintendo and
+Capcom.
 
 We do not hold any copyrights.
 
